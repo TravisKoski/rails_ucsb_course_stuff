@@ -1,7 +1,34 @@
-<%= form_with(model :course) do |f| %> 
-    <%= f.text_area, :name %>
-    <%= f.text_area, :dept %>
-    <%= f.text_area, :professor %>
-    <%= f.text_area, :quarter %>
-    <%= f.submit %>
-<%end%>
+<%= form_with(model:@course) do |form| %>
+    <% if @course.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(testentity.errors.count, "error") %> prohibited this testentity from being saved:</h2>
+  
+        <ul>
+          <%@course.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_area :name %>
+    </div>
+    <div>
+      <%= form.label :dept, style: "display: block" %>
+      <%= form.text_area :dept %>
+    </div>
+    <div>
+      <%= form.label :professor, style: "display: block" %>
+      <%= form.text_area :professor %>
+    </div>
+    <div>
+      <%= form.label :quarter, style: "display: block" %>
+      <%= form.text_area :quarter %>
+    </div>
+  
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>

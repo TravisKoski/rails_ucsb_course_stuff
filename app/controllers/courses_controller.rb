@@ -12,12 +12,13 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
 
      if  @course.save
+      flash[:notice] = "Course created successfully"
       redirect_to courses_path
     end
   end
 
   def show
-    @course = Courses.find(params[:id])
+    @course = Course.find(params[:id])
   end
   def new
     @course = Course.new
@@ -26,13 +27,14 @@ class CoursesController < ApplicationController
     @course = Courses.find(params[:id])
 
     if @course.update(course_params)
+      flash[:notice] = "Course updated successfully"
       redirect_to courses_path
   
     end 
   end
 
   def destroy
-    @course= Courses.find(params[:id])
+    @course= Course.find(params[:id])
     @course.destroy
     redirect_to courses_path
   end

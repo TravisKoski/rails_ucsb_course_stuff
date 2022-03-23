@@ -1,9 +1,7 @@
 <h1>Courses</h1>
 <% @courses.each do |course|%>
     <p> course name: <%= course.name%> </p>
-    <p> department: <%= course.dept%> </p>
-    <p> taught by: <%= course.professor%> </p>
-    <p> taught in the quarter of : <%= course.quarter%> </p>
+    <p> <%=link_to "show this course", course_path(:id=>course.id)%>
 <% end %>
 
 <%= link_to "add a new course", new_course_path %> <br> <br>
