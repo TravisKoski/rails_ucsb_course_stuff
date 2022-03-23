@@ -1,0 +1,12 @@
+<h1>Courses</h1>
+<% @courses.each do |course|%>
+    <p> course name: <%= course.name%> </p>
+    <p> department: <%= course.dept%> </p>
+    <p> taught by: <%= course.professor%> </p>
+    <p> taught in the quarter of : <%= course.quarter%> </p>
+<% end %>
+
+<%= link_to "add a new course", new_course_path %> <br> <br>
+<%= link_to "add a quarter to filter by", new_active_quarter_path %> <br><br>
+<%= link_to "show all courses", delete_filter_path %>
+
