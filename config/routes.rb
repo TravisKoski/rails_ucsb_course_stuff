@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get "/active_quarters/nuke", to: "active_quarters#destroy", as: "delete_filter"
   resources :courses
   resources :active_quarters, :except=>[:destroy]
+  resources :students
+  resources :courses do 
+    resources :students
+  end
   
   # Defines the root path route ("/")
   root "courses#index"
